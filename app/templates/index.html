@@ -1,31 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->  <!-- Compiled and minified CSS -->
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Our Project</title>
-  </head>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Project</title>
+</head>
 
-  <body>
-    <div class="section"></div>
-      <center>
-        <div class="container">
-          <div class="jumbotron">
-            <div class="indigo-text">
-            <h1>Our project</h1>
-          </div>
+<body>
+  <div class="section"></div>
+  <main>
+    <center>
+      <div class="container">
+        <div class="jumbotron">
+          <div class="indigo-text">
+            <h1>Twitter </h1>
           </div>
         </div>
-      </center>
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      </div>
+      <h5 class="indigo-text">Enter your potential new home</h5>
+      <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
-      <!-- Compiled and minified JavaScript -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  </body>
+        <form class="col s12" id="tweet">
+          <div class='row'>
+            <div class='col s12'>
+            </div>
+          </div>
+
+          <div class='row'>
+            <div class='input-field col s12'>
+              <input required="" class='validate' type='text' name='link' id='link' />
+              <label data-error="Enter a valid tweet" for='text'>Address</label>
+              <div style="color: red" id="error_text">
+
+              </div>
+            </div>
+          </div>
+
+
+          <br />
+          <center>
+            <div class='row'>
+              <button id='button' type='submit' name='btn' class='col s12 btn btn-large waves-effect indigo'>Find data</button>
+            </div>
+          </center>
+        </form>
+      </div>
+      </div>
+      <a class="waves-effect waves-light btn modal-trigger" href="#modal1">About</a>
+      <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Creators</a>
+    </center>
+  </main>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+
 </html>
