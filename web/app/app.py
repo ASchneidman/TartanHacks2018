@@ -5,6 +5,7 @@ from twitterAPI import get_tweets
 from spotifyAPI import get_tracks
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -28,7 +29,7 @@ def get_path(coords):
     result = get_tweets(arr[0], arr[1], 20)
     #username = arr[2]
     result1 = []
-    print(str(result))
+#    print(str(result))
     for tweet in result:
         tweeter = tweet.split(' ')
         if "by" in tweeter:
