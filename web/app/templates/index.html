@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Local Music</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <script type="application/x-javascript">
+    addEventListener("load", function() {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+  <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="/static/js/jquery-1.11.1.min.js"></script>
+  <!-- Custom Theme files -->
+  <link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+  <!-- Custom Theme files -->
+  <script src="/static/js/bootstrap.min.js"></script>
+  <link href="/static/css/font-awesome.css" rel="stylesheet">
+  <!--webfont-->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="banner">
+
+    <div class="container">
+      <div class="banner-info">
+        <h1>Play</h1>
+        <p>Get personalized music based on popular local tweets! </p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="header_bottom">
+      <div class="container">
+        <div class="logo">
+          <h2><a href="index.html">Melody</a></h2>
+        </div>
+        <nav class="navbar navbar-default menu" role="navigation">
+          <h3 class="nav_right"><a href="index.html">Melody</a></h3>
+          <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav menu1">
+                <li class="active"><a href="index.html">Home<i class="menu-border"></i></a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container-fluid -->
+        </nav>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="row content_top">
+      <div class="col-md-3 col3">
+        <div class="wrap_banner">
+          <a href="#" onclick="findLocal()" class="fa-btn btn-1 btn-1e">Get Music</a>
+          <p>Click here to get a personalized playlist based on your location!</p>
+        </div>
+      </div>
+      <div class="col-md-6 col6">
+        <div class="wrap_banner1">
+          <h3>What we do</h3>
+          <p>We take your current location and based on what people<br>are tweeting locally, gather the latest, most popular songs and artists into a single playlist</p>
+        </div>
+      </div>
+      <div class="col-md-3 colast">
+        <div class="wrap_banner2">
+          <a href="about.html" class="fa-btn btn-1 btn-1e con_but">More Details</a>
+          <p>Click here for more technical details!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+
+        <div class="footer-grid">
+          <h3>Information</h3>
+          <ul class="list1">
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+
+          </ul>
+        </div>
+
+
+        <div class="footer-grid last_grid">
+
+          <h5>Call Team<br>+1 (720) 737 - 7685</h5>
+        </div>
+      </div>
+    </div>
+    <div class="footer_bottom">
+
+    </div>
+  </div>
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs11VuKZLIl4j2C3LAm-fcQD7R0aGvBGk&callback=initMap"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script>
+    var map;
+    var infoWindow;
+    var coordinates = [];
+    var markers = [];
+    var polygon;
+    /*
+        $(document).ready(function() {
+          $("#tweet").submit(function(event) {
+            console.log("Got username");
+            var username = $("#link").val();
+
+
+            console.log(username);
+
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = [position.coords.latitude, position.coords.longitude, username];
+                $.get("/get_local/" + pos, function(resp) {
+                  document.write(resp);
+                });
+
+              }, function() {
+                //handleLocationError(true, infoWindow, map.getCenter());
+              });
+            } else {
+              // Browser doesn't support Geolocation
+              //handleLocationError(false, infoWindow, map.getCenter());
+            }
+
+          });
+        });
+    */
+
+
+    /*  window.onload = function() {
+        findLocal();
+      };*/
+
+
+    function findLocal() {
+
+    //  var username = document.getElementById("link").value;
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = [position.coords.latitude, position.coords.longitude];
+          $.get("/get_local/" + pos, function(resp) {
+            document.write(resp);
+          });
+
+        }, function() {
+          document.write("Maps error");
+        });
+      } else {
+        document.write("Maps error");
+      }
+    }
+  </script>
+</body>
+
+</html>
