@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Local Music</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,43 +29,47 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
-<!-- related to loading -->
-<!-- !!!!!!!!!!!!!!!!!!!!!!! -->
+  <!-- related to loading -->
+  <!-- !!!!!!!!!!!!!!!!!!!!!!! -->
   <link rel="stylesheet" href="/static/css/normalize.css">
   <link rel="stylesheet" href="/static/css/main.css">
-  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+  <script src="/static/js/vendor/modernizr-2.6.2.min.js"></script>
   <style type="text/css">
-  .back-link a {
-    color: #4ca340;
-    text-decoration: none;
-    border-bottom: 1px #4ca340 solid;
-  }
-  .back-link a:hover,
-  .back-link a:focus {
-    color: #408536;
-    text-decoration: none;
-    border-bottom: 1px #408536 solid;
-  }
-  h1 {
-    height: 100%;
-    /* The html and body elements cannot have any padding or margin. */
-    margin: 0;
-    font-size: 14px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 32px;
-    margin-bottom: 3px;
-  }
-  .entry-header {
-    text-align: left;
-    margin: 0 auto 50px auto;
-    width: 80%;
-        max-width: 978px;
-    position: relative;
-    z-index: 10001;
-  }
-  #demo-content {
-    padding-top: 100px;
-  }
+    .back-link a {
+      color: #4ca340;
+      text-decoration: none;
+      border-bottom: 1px #4ca340 solid;
+    }
+
+    .back-link a:hover,
+    .back-link a:focus {
+      color: #408536;
+      text-decoration: none;
+      border-bottom: 1px #408536 solid;
+    }
+
+    h1 {
+      height: 100%;
+      /* The html and body elements cannot have any padding or margin. */
+      margin: 0;
+      font-size: 14px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 32px;
+      margin-bottom: 3px;
+    }
+
+    .entry-header {
+      text-align: left;
+      margin: 0 auto 50px auto;
+      width: 80%;
+      max-width: 978px;
+      position: relative;
+      z-index: 10001;
+    }
+
+    #demo-content {
+      padding-top: 100px;
+    }
   </style>
   <!-- End related to Loading -->
 
@@ -74,15 +78,7 @@
 
 <body>
 
-<!--LOADING-->
-  <div id="loader-wrapper">
-    <div id="loader"></div>
 
-    <div class="loader-section section-left"></div>
-          <div class="loader-section section-right"></div>
-
-  </div>
-<!-- END of LOADING -->
 
 
   <div class="banner">
@@ -120,11 +116,11 @@
   </div>
 
 
-  <div class="main">
+  <div class="main" id="main">
     <div class="row content_top">
       <div class="col-md-3 col3">
         <div class="wrap_banner">
-          <a href="#" onclick="findLocal()" class="fa-btn btn-1 btn-1e">Get Music</a>
+          <a href="/loader.html" class="fa-btn btn-1 btn-1e">Get Music</a>
           <p>Click here to get a personalized playlist based on your location!</p>
 
         </div>
@@ -165,7 +161,10 @@
     <div class="footer_bottom">
 
     </div>
+
   </div>
+
+
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs11VuKZLIl4j2C3LAm-fcQD7R0aGvBGk&callback=initMap"></script>
   <!-- Compiled and minified JavaScript -->
@@ -212,7 +211,6 @@
 
     function findLocal() {
 
-    //  var username = document.getElementById("link").value;
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var pos = [position.coords.latitude, position.coords.longitude];
@@ -229,8 +227,10 @@
     }
   </script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-	<script src="js/main.js"></script>
+  <script>
+    window.jQuery || document.write('<script src="/static/js/vendor/jquery-1.9.1.min.js"><\/script>')
+  </script>
+  <!--<script src="/static/js/main.js"></script>-->
 </body>
 
 </html>

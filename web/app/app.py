@@ -17,6 +17,9 @@ def about():
 def contact():
     return render_template('contact.html')
 
+@app.route('/loader.html')
+def load():
+    return render_template('loader.html')
 
 @app.route('/get_local/<coords>')
 def get_path(coords):
