@@ -38,7 +38,11 @@ def get_tracks(queries=["Post Malone"]):
 
     playlistid = playlist['id']
     results = sp.user_playlist_add_tracks(username, playlistid, track_ids)
-    return playlistid
+    data = []
+    data.append(playlistid)
+    data.append(tracks)
+    data.append(track_ids)
+    return data
 
 
 

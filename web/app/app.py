@@ -39,7 +39,7 @@ def get_path(coords):
     result1 = list(set(result1))
             #result1.append(tweeter[tweeter.index("by")+2])
     playlistid = get_tracks(result1)
-    return render_template('album.html')
+    return render_template('album.html',value=playlistid)
 
 def main():
     app.run(host='0.0.0.0')
