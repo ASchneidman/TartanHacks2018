@@ -2,7 +2,7 @@ import spotipy, json
 import spotipy.util as util
 
 
-def get_tracks(username, queries=["Post Malone"]):
+def get_tracks(username="ASchneidman", queries=["Post Malone"]):
     ids = []
     scope = 'playlist-modify-public'
     print (username)
