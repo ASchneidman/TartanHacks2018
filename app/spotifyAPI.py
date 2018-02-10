@@ -2,10 +2,10 @@ import spotipy, json
 import spotipy.util as util
 
 
-def get_tracks(queries=["Post Malone"]):
+def get_tracks(username, queries=["Post Malone"]):
     ids = []
     scope = 'playlist-modify-public'
-    username = 'ASchneidman'
+    print (username)
     token = util.prompt_for_user_token(username=username,scope=scope,client_id='7170451d1ae941d6967a9976a375cd00',client_secret='bc9a015ae6ce4f119d514b684998e084',redirect_uri='http://localhost/')
     sp = spotipy.Spotify(auth=token)
     for query in queries:

@@ -17,8 +17,28 @@
   <div class="section"></div>
   <main>
     <center>
-      <!-- <h1>SOME TITLE HERE</h1> -->
+      <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
+
+          <div class='row'>
+            <div class='input-field col s12'>
+              <input required="" type='text' name='link' id='link' />
+              <label data-error="Enter a valid tweet" for='text'>Link to Tweet</label>
+              <div style="color: red" id="error_text">
+
+              </div>
+            </div>
+          </div>
+
+
+          <br />
+          <center>
+            <div class='row'>
+              <button id='button' name='btn' onclick='findLocal()' class='col s12 btn btn-large waves-effect indigo'>Catch some feelings</button>
+            </div>
+          </center>
+        </form>
+      </div>
 
       <a class="waves-effect waves-light btn modal-trigger" href="#modal1">About</a>
       <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Creators</a>
@@ -29,6 +49,7 @@
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs11VuKZLIl4j2C3LAm-fcQD7R0aGvBGk&callback=initMap"></script>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script>
@@ -37,27 +58,58 @@
     var coordinates = [];
     var markers = [];
     var polygon;
-    window.onload = function() {
-      findLocal();
-    };
+    /*
+        $(document).ready(function() {
+          $("#tweet").submit(function(event) {
+            console.log("Got username");
+            var username = $("#link").val();
+
+
+            console.log(username);
+
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = [position.coords.latitude, position.coords.longitude, username];
+                $.get("/get_local/" + pos, function(resp) {
+                  document.write(resp);
+                });
+
+              }, function() {
+                //handleLocationError(true, infoWindow, map.getCenter());
+              });
+            } else {
+              // Browser doesn't support Geolocation
+              //handleLocationError(false, infoWindow, map.getCenter());
+            }
+
+          });
+        });
+    */
+
+
+    /*  window.onload = function() {
+        findLocal();
+      };*/
+
 
     function findLocal() {
+
+      var username = document.getElementById("link").value;
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-          var pos = [position.coords.latitude,position.coords.longitude];
-          $.get("/get_local/" + pos, function(resp){
+          var pos = [position.coords.latitude, position.coords.longitude, username];
+          $.get("/get_local/" + pos, function(resp) {
             document.write(resp);
           });
+
         }, function() {
-          //handleLocationError(true, infoWindow, map.getCenter());
+          document.write("Maps error");
         });
       } else {
-        // Browser doesn't support Geolocation
-        //handleLocationError(false, infoWindow, map.getCenter());
+        document.write("Maps error");
       }
     }
   </script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs11VuKZLIl4j2C3LAm-fcQD7R0aGvBGk&callback=initMap"></script>
 </body>
 
 </html>

@@ -14,6 +14,7 @@ def get_path(coords):
     print (coords)
     arr = coords.split(',')
     result = get_tweets(arr[0], arr[1], 20)
+    username = arr[2]
     result1 = []
     print(str(result))
     for tweet in result:
@@ -28,7 +29,7 @@ def get_path(coords):
 
     result1 = list(set(result1))
             #result1.append(tweeter[tweeter.index("by")+2])
-    return str(get_tracks(result1))
+    return str(get_tracks(username, result1))
 
 def main():
     app.run(host='0.0.0.0')
