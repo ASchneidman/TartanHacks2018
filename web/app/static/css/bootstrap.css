@@ -130,6 +130,10 @@ input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
 }
+
+
+
+
 button[disabled],
 html input[disabled] {
   cursor: default;
