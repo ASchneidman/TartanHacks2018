@@ -2,6 +2,7 @@ from flask import Flask, render_template, jsonify, send_from_directory
 import requests
 import re
 from twitterAPI import get_tweets
+from spotifyAPI import get_tracks
 app = Flask(__name__)
 
 @app.route('/')
@@ -27,7 +28,7 @@ def get_path(coords):
 
     result1 = list(set(result1))
             #result1.append(tweeter[tweeter.index("by")+2])
-    return (str(result1))
+    return str(get_tracks(result1))
 
 def main():
     app.run(host='0.0.0.0')
