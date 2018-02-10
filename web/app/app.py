@@ -17,6 +17,7 @@ def about():
 def contact():
     return render_template('contact.html')
 
+
 @app.route('/get_local/<coords>')
 def get_path(coords):
     print (coords)
@@ -37,7 +38,8 @@ def get_path(coords):
 
     result1 = list(set(result1))
             #result1.append(tweeter[tweeter.index("by")+2])
-    return str(get_tracks(result1))
+    playlistid = get_tracks(result1)
+    return render_template('album.html')
 
 def main():
     app.run(host='0.0.0.0')
