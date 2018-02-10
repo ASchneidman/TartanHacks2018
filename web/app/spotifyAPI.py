@@ -8,7 +8,7 @@ def get_tracks(queries=["Post Malone"]):
     username = "schneidmans"
     playlist_name = "Local"
     playlist_desc = "Local"
-    token = util.prompt_for_user_token(username=username,scope=scope,client_id='7170451d1ae941d6967a9976a375cd00',client_secret='bc9a015ae6ce4f119d514b684998e084',redirect_uri='http://localhost/')
+    token = util.prompt_for_user_token(username=username,scope=scope,client_id='314ebba86f7242bf816e56460f9514bb',client_secret='26cba47c6db841e5be7d7dfaeb3ef84',redirect_uri='http://localhost/')
     sp = spotipy.Spotify(auth=token)
     for query in queries:
         print(query)
