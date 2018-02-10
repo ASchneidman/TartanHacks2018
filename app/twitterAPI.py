@@ -13,7 +13,7 @@ api = tweepy.API(auth)
 
 def get_tweets(lat, long, radius):
     geo = str(lat) + "," + str(long) + "," + str(radius) + "mi"
-    results = tweepy.Cursor(api.search, q="#NowPlaying",geocode=geo).items(100000)
+    results = tweepy.Cursor(api.search, q="#NowPlaying",geocode=geo).items(50)
     count = 0
     retVal = []
     for result in results:
