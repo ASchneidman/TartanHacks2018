@@ -1,0 +1,4 @@
+requests==2.18.4
+Flask==0.12.2
+tweepy==3.5.0
+spotipy==2.4.4
