@@ -23,16 +23,18 @@ def get_tracks(queries=["Post Malone"]):
 
     tracks = []
     track_ids = []
+    num = 0
     for id in ids:
-        if (len(track_ids) > 10):
-            break
+        artist_tracks = []
         trackJSON = sp.artist_top_tracks(id)
         tracks_list = trackJSON['tracks']
         for i in tracks_list:
+            if (len(artist_tracks) > 4):
+                break
+            artist_tracks.append(i['id'])
             tracks.append(i['name'])
-            track_ids.append(i['id'])
-    userid = 'C1pjRNm-QfSxWdfYr1BhDg'
-
+        for i in artist_tracks:
+            track_ids.append(i)
     sp.trace = False
     playlist = sp.user_playlist_create(username, playlist_name)
 
