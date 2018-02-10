@@ -55,6 +55,7 @@
       </div>
       <a class="waves-effect waves-light btn modal-trigger" href="#modal1">About</a>
       <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Creators</a>
+      <div id="map"></div> <br />
     </center>
   </main>
 
@@ -63,6 +64,35 @@
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script>
+    var map;
+    var infoWindow;
+    var coordinates = [];
+    var markers = [];
+    var polygon;
+    window.onload = function() {
+      findLocal();
+    };
+
+    function findLocal() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = [position.coords.latitude,position.coords.longitude];
+          $.get("/get_local/" + pos, function(resp){
+            document.write(resp);
+          });
+        }, function() {
+          //handleLocationError(true, infoWindow, map.getCenter());
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        //handleLocationError(false, infoWindow, map.getCenter());
+      }
+    }
+
+
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs11VuKZLIl4j2C3LAm-fcQD7R0aGvBGk&callback=initMap"></script>
 </body>
 
 </html>
