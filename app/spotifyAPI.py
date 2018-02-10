@@ -1,4 +1,4 @@
-import spotipy
+import spotipy, json
 import spotipy.util as util
 
 
@@ -10,8 +10,9 @@ def get_results(queries=["Post Malone"]):
     sp = spotipy.Spotify(auth=token)
     for query in queries:
         print(query)
-        results = sp.search(q='artist:{}'.format(query), limit=1)
-        print (results)
+        results = sp.search(q='artist:{}'.format(query), limit=1, type='artist')
+        items = results['artists']['items'][0]['id']
+        print (items)
 
 if __name__ == '__main__':
     get_results()

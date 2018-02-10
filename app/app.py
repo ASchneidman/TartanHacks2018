@@ -37,10 +37,14 @@ def get_path(coords):
     arr = coords.split(',')
     result = get_tweets(arr[0], arr[1], 20)
     result1 = []
+    print(str(result))
+    bycount = 0
     for tweet in result:
         tweeter = tweet.split(' ')
         if "by" in tweeter:
+            bycount += 1
             result1.append(re.sub('stco*','',re.sub('http*','',re.sub('[^A-Za-z0-9]+','',tweeter[tweeter.index("by")+1]))))
+            print (bycount)
             #if tweeter.index("by")+2 < len(tweeter):
                 #result1[len(result1)-1] += ' ' + re.sub('stco*','',re.sub('http*','',re.sub('[^A-Za-z0-9]+','',tweeter[tweeter.index("by")+2])))
     result1 = list(set(result1))
